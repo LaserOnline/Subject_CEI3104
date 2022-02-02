@@ -65,9 +65,19 @@ $result = mysqli_fetch_array($query);
   </nav>
   <!--ส่วน Navbar-->
 
-  <!--Play-->
+
   <div class="album py-5 bg-light">
     <div class="container">
+      <!-- Nav -->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.php">หน้าแรก</a></li>
+          <li class="breadcrumb-item active"><a href="#"><?= $result['name'] ?></a></li>
+        </ol>
+      </nav>
+      <!-- Nav -->
+
+      <!--Play-->
       <div class="row">
         <div class="col-md-3">
           <div class="card mb-4 box-shadow">
@@ -80,7 +90,9 @@ $result = mysqli_fetch_array($query);
           </div>
         </div>
         <div class="col-md-12">
-
+          <div class="card shadow-sm text-center" style="background-color: #e9a6b3!important;color: white;">
+            <h3>ตัวเล่นหนัง</h3>
+          </div>
           <div class="card mb-4 box-shadow">
             <iframe width="100%" height="550" src="https://www.youtube.com/embed/<?= $result['vdo_ex'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>

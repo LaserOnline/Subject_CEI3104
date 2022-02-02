@@ -1,7 +1,13 @@
 <?php
 require 'connectdb.php';
-$sql = "SELECT * FROM data_movie";
-$query  = mysqli_query($dbcon, $sql);
+$num_rows = mysqli_num_rows(mysqli_query($dbcon, "SELECT * FROM data_movie"));
+
+$limit_page = 8;
+$page = $_GET['Page'];
+
+$num_page = $num_rows / $limit_page;
+$limit_start = ($page * $limit_page) - $limit_page;
+
 ?>
 
 <!DOCTYPE html>
@@ -20,8 +26,6 @@ $query  = mysqli_query($dbcon, $sql);
 </head>
 
 <body>
-
-  <!--ส่วน Navbar-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light" style="   background-color: #53a2f1!important">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -59,26 +63,21 @@ $query  = mysqli_query($dbcon, $sql);
       </form>
     </div>
   </nav>
-  <!--ส่วน Navbar-->
 
-  <!-- nav ก่อนหนัง -->
-
+  <!-- หน้าหนัง -->
   <div class="album py-5 bg-light " style="background-color: #a2c9f0!important">
     <div class="container">
-      <nav class="nav" style="background-color: #676767!important">
-        <a class="nav-link active" aria-current="page" href="#" style="color: black">หนังมาใหม่ล่าสุด</a>
-        <a class="nav-link" href="#" style="color: black">หนังซีรี่ย์เกาหลี</a>
-        <a class="nav-link" href="#" style="color: black">Link</a>
-        <a class="nav-link disabled" style="color: black">Disabled</a>
-      </nav>
-      <!-- nav ก่อนหนัง -->
 
-      <!--เมนูหนัง-->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.php">หน้าแรก</a></li>
+          <li class="breadcrumb-item active"><a href="#"></a></li>
+        </ol>
+      </nav>
 
       <div class="row">
-        <!--loop หนัง-->
         <?php
-
+        $query  = mysqli_query($dbcon, "SELECT * FROM data_movie ORDER BY id DESC LIMIT 16,$limit_page");
         while ($rs = mysqli_fetch_array($query)) {
         ?>
           <div class="col-md-3">
@@ -88,7 +87,6 @@ $query  = mysqli_query($dbcon, $sql);
                 <div class="card-body">
                   <p class="card-text text-center"><?= $rs['name'] ?></p>
                   <div class="d-flex justify-content-between align-items-center">
-
                   </div>
                 </div>
             </div>
@@ -96,39 +94,54 @@ $query  = mysqli_query($dbcon, $sql);
         <?php
         }
         ?>
-        <!--loop หนัง-->
 
       </div>
     </div>
-    <!--เมนูหนัง-->
+    <!-- หน้าหนัง -->
 
-    <!--Button toolbar"-->
-    <center>
-      <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
+    <!-- ปุ่มเปลี่ยนหน้า    -->
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <!-- ------------------------------------------------- -->
+        <li class="page-item disabled">
+          <a class="page-link">Previous</a>
+        </li>
+        <!-- ------------------------------------------------- -->
+        <?php
+        for ($i = 1; $i <= $num_page; $i++) {
+          if ($page == $i) {
 
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#">หน้าถัดไป</a>
-          </li>
-        </ul>
-      </nav>
-    </center>
-    <!--Button toolbar"-->
+        ?>
+            <li class="page-item active" aria-current="page">
+              <span class="page-link"><?= $i ?><span class="sr-only">(current)</span></span>
+            </li>
+          <?php
+          } else {
+          ?>
+            <li class="page-item"><a class="page-link" href="?Page=<?= $i ?>"><?= $i ?></a> </li>
+        <?php
+          }
+        }
+        ?>
+
+
+        <!-- ------------------------------------------------- -->
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- ปุ่มเปลี่ยนหน้า    -->
+
+
+
   </div>
 
-  <br>
-  <!-- ส่วนล่าง  -->
-  <center>
-    <footer class="blog-footer">
-      <p>จัดทำโดย เด็กชาย ประหยัด จันทร์อังคาร์</p>
-    </footer>
-  </center>
-  <!-- ส่วนล่าง  -->
+
+
+
+
+
 
 
 </body>

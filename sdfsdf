@@ -1,0 +1,26 @@
+  <nav aria-label="..."> 
+      <ul class="pagination justify-content-center">
+        <!-- ------------------------------------------------- -->
+        <li class="page-item disabled">
+          <span class="page-link">หน้าก่อน</span>
+        </li>
+        <!-- ----------------------------------------------- -->
+        <?php
+        for ($i = 1; $i <= $num_page; $i++) {
+          if ($page == $i) {
+        ?>
+            <li class="page-item active" aria-current="page">
+              <span class="page-link"><?= $i ?><span class="sr-only">(current)</span></span>
+            </li>
+          <?php
+          } else {
+          ?>
+            <li class="page-item"><a class="page-link" href="#"></a><?= $i ?></a></li>
+          <?php } ?>
+        <?php } ?>
+        <!-- -------------------------------- -->
+        <li class="page-item">
+          <a class="page-link" href="">หน้าถัดไป</a>
+        </li>
+      </ul>
+    </nav>
