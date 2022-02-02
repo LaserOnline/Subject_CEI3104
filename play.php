@@ -80,20 +80,21 @@ $result = mysqli_fetch_array($query);
       <!--Play-->
       <div class="row">
         <div class="col-md-3">
-          <div class="card mb-4 box-shadow">
-            <img class="card-img-top" width="100%" height="550" src="./images/<?= $result['img'] ?>" alt="Card image cap">
+          <div class="card mb-4 shadow-sm">
+            <img class="card-img-top" width="100%" height="380" src="./images/<?= $result['img'] ?>">
           </div>
         </div>
+
         <div class="col-md-9">
-          <div class="card mb-4 box-shadow">
-            <iframe width="100%" height="550" src="https://www.youtube.com/embed/<?= $result['vdo_ex'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="card mb-4 shadow-sm">
+            <iframe width="100%" height="380" src="https://www.youtube.com/embed/<?= $result['vdo_ex'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
         <div class="col-md-12">
           <div class="card shadow-sm text-center" style="background-color: #e9a6b3!important;color: white;">
             <h3>ตัวเล่นหนัง</h3>
           </div>
-          <div class="card mb-4 box-shadow">
+          <div class="card mb-4 shadow-sm">
             <iframe width="100%" height="550" src="https://www.youtube.com/embed/<?= $result['vdo_ex'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>

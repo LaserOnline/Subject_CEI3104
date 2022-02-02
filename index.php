@@ -2,12 +2,20 @@
 require 'connectdb.php';
 $num_rows = mysqli_num_rows(mysqli_query($dbcon, "SELECT * FROM data_movie"));
 
-$limit_page = 8;
-$page = $_GET['Page'];
+$limit_page = 12;
+
+if(isset($_GET['Page'])){
+  $page = $_GET['Page'];
+}else{
+  $page = 1;
+}
+
 
 $num_page = $num_rows / $limit_page;
 $limit_start = ($page * $limit_page) - $limit_page;
-
+if (!($num_page == (int)$num_page)) {
+  $num_page = (int)$num_page + 1;
+}
 ?>
 
 <!DOCTYPE html>
@@ -70,24 +78,22 @@ $limit_start = ($page * $limit_page) - $limit_page;
 
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.php">หน้าแรก</a></li>
+          <li class="breadcrumb-item"><a href="./">หน้าแรก</a></li>
           <li class="breadcrumb-item active"><a href="#"></a></li>
         </ol>
       </nav>
 
       <div class="row">
         <?php
-        $query  = mysqli_query($dbcon, "SELECT * FROM data_movie ORDER BY id DESC LIMIT 16,$limit_page");
+        $query  = mysqli_query($dbcon, "SELECT * FROM data_movie ORDER BY id DESC LIMIT $limit_start,$limit_page");
         while ($rs = mysqli_fetch_array($query)) {
         ?>
           <div class="col-md-3">
-            <div class="card mb-4 box-shadow">
+            <div class="card mb-4 shadow-sm">
               <a href="./play.php?id=<?= $rs['id'] ?>">
-                <img class="d-block w-100" src="./images/<?= $rs['img'] ?>" alt="First slide">
+                <img src="./images/<?= $rs['img'] ?>" while="100%" height="380" class="card-img-top">
                 <div class="card-body">
-                  <p class="card-text text-center"><?= $rs['name'] ?></p>
-                  <div class="d-flex justify-content-between align-items-center">
-                  </div>
+                  <p class="card-text text-center" style="white-space: nowrap;overflow :hidden; text-overflow:ellipsis;"><?= $rs['name'] ?></p>
                 </div>
             </div>
           </div>
@@ -100,20 +106,53 @@ $limit_start = ($page * $limit_page) - $limit_page;
     <!-- หน้าหนัง -->
 
     <!-- ปุ่มเปลี่ยนหน้า    -->
-    <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-center">
-        <!-- ------------------------------------------------- -->
-        <li class="page-item disabled">
-          <a class="page-link">Previous</a>
-        </li>
-        <!-- ------------------------------------------------- -->
-        <?php
-        for ($i = 1; $i <= $num_page; $i++) {
-          if ($page == $i) {
 
+    <nav aria-label="...">
+      <ul class="pagination justify-content-center">
+
+        <?php
+        if ($page <= 1) {
+        ?>
+          <li class="page-item disabled">
+
+          </li>
+        <?php
+        } else {
+        ?>
+          <li class="page-item">
+            <a class="page-link" href="?Page=<?= $page - 1 ?>">ก่อนหน้า</a>
+          </li>
+        <?php
+        }
+        ?>
+
+
+        <?php
+        if ($page > $num_page)
+          $page = $num_page;
+        if ($page >= 9) {
+          if ($page <= 5) {
+            $num_start = 1;
+            $num_stop = 9;
+          } elseif ($page > $num_page - 4) {
+            $num_start = $page - 8;
+            $num_stop = $num_page;
+          } else {
+            $num_start = $page - 2;
+            $num_stop = $page + 2;
+          }
+        } else {
+          $num_start = 1;
+          $num_stop = $num_page;
+        }
+
+
+
+        for ($i = 1; $i <= $num_stop; $i++) {
+          if ($page == $i) {
         ?>
             <li class="page-item active" aria-current="page">
-              <span class="page-link"><?= $i ?><span class="sr-only">(current)</span></span>
+              <a class="page-link"><?= $i ?><a class="sr-only">(current)</a></a>
             </li>
           <?php
           } else {
@@ -125,10 +164,21 @@ $limit_start = ($page * $limit_page) - $limit_page;
         ?>
 
 
-        <!-- ------------------------------------------------- -->
-        <li class="page-item">
-          <a class="page-link" href="#">Next</a>
-        </li>
+        <?php
+        if ($page >= $num_page) {
+        ?>
+          <li class="page-item disabled">
+            <span class="page-link">ถัดไป</span>
+          </li>
+        <?php
+        } else {
+        ?>
+          <li class="page-item">
+            <a class="page-link" href="?Page=<?= $page + 1 ?>">ถัดไป</a>
+          </li>
+        <?php
+        }
+        ?>
       </ul>
     </nav>
     <!-- ปุ่มเปลี่ยนหน้า    -->
