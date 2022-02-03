@@ -1,9 +1,30 @@
 <?php
 require 'connectdb.php';
-$id = $_GET['id'];
-$sql = "SELECT * FROM data_movie WHERE id ='$id'";
-$query  = mysqli_query($dbcon, $sql);
-$result = mysqli_fetch_array($query);
+$id = @$_GET['id'];
+if (!$id) {
+  echo 'NO ID';
+  exit;
+}
+$list = @$_GET['list'];
+
+if (!$list) {
+  $sql = "SELECT * FROM data_movie WHERE id =$id";
+  $query  = mysqli_query($dbcon, $sql);
+  $result = mysqli_fetch_array($query);
+} else {
+  $sql = "SELECT * FROM data_list WHERE main_id =$id and part=$list";
+  $query  = mysqli_query($dbcon, $sql);
+  $result = mysqli_fetch_array($query);
+  $num_row = mysqli_num_rows($query);
+
+  $sql_row = "SELECT  * FROM data_list";
+  $result_row = mysqli_query($dbcon, $sql_row);
+  $num_row = mysqli_num_rows($result_row);
+}
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -24,9 +45,7 @@ $result = mysqli_fetch_array($query);
 <body>
 
   <!--ส่วน Navbar-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="
-    background-color: #3788d9!important;">
-
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="   background-color: #000000!important">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -34,13 +53,11 @@ $result = mysqli_fetch_array($query);
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="index.php">หน้าแรก <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="index.php" style="color: white;">หน้าแรก <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">ยอดฮิตติดอันดับ</a>
-        </li>
+
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             หมวดหมุ่
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -51,15 +68,14 @@ $result = mysqli_fetch_array($query);
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="#">เข้าสู่ระบบ</a>
+          <a class="nav-link " href="#" style="color: white;">เข้าสู่ระบบ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="#">ออกจากระบบ</a>
+          <a class="nav-link " href="#" style="color: white;">ออกจากระบบ</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-dark" type="submit">ค้นหา</button>
+
       </form>
     </div>
   </nav>
@@ -68,49 +84,85 @@ $result = mysqli_fetch_array($query);
 
   <div class="album py-5 bg-light">
     <div class="container">
-      <!-- Nav -->
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.php">หน้าแรก</a></li>
-          <li class="breadcrumb-item active"><a href="#"><?= $result['name'] ?></a></li>
-        </ol>
-      </nav>
-      <!-- Nav -->
+      <!-- ส่วนเล่นหนัง -->
+      <?php
+      if (!$list) {
+        // ถ้าเป็นหนังให้ทำอันนี้
+      ?>
 
-      <!--Play-->
-      <div class="row">
-        <div class="col-md-3">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" width="100%" height="380" src="./images/<?= $result['img'] ?>">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active" style="color: black;font-size: 25px; font-weight: bold; "><?= $result['name'] ?></li>
+          </ol>
+        </nav>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+              <img class="card-img-top" width="100%" height="380" src="./images/<?= $result['img'] ?>">
+            </div>
+          </div>
+
+
+          <div class="col-md-9">
+            <div class="card mb-4 shadow-sm">
+              <iframe width="100%" height="380" src="https://www.youtube.com/embed/<?= $result['vdo_ex'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="col-md-12">
+
+            <div class="card shadow-sm text-center " style="background-color: #d81432!important;color: white;">
+              <h3>ตัวเล่นหนัง</h3>
+            </div>
+            <div class="card mb-4 shadow-sm">
+              <iframe width="100%" height="550" src="https://www.youtube.com/embed/<?= $result['vdo_ex'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
-
-        <div class="col-md-9">
-          <div class="card mb-4 shadow-sm">
-            <iframe width="100%" height="380" src="https://www.youtube.com/embed/<?= $result['vdo_ex'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-        </div>
+      <?php } else { ?>
+        <!-- ถ้าเป้นซี่รี่ย์ให้ทำอันนี้ -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active" style="color: black;font-size: 25px; font-weight: bold; "><?= $result['vdo'] ?><a href="./list.php?id=<?= $id ?>" style="text-decoration:none; color: green;"> / ดูตอนอื่นๆ</a></li>
+          </ol>
+        </nav>
         <div class="col-md-12">
-          <div class="card shadow-sm text-center" style="background-color: #e9a6b3!important;color: white;">
-            <h3>ตัวเล่นหนัง</h3>
+          <div class="card shadow-sm text-center" style="background-color: red;color: white;">
+            <h3>ตอนที่ <?= $result['part'] ?> </h3>
           </div>
           <div class="card mb-4 shadow-sm">
-            <iframe width="100%" height="550" src="https://www.youtube.com/embed/<?= $result['vdo_ex'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="100%" height="550" src="https://www.youtube.com/embed/<?= $result['vdo'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
-      </div>
+        <!-- ส่วนเล่นหนัง -->
+
+        <!-- ปุ่มด้านล่าง -->
+
+        <div class="row">
+          <div class="col-md-4">
+            <a class="btn shadow-sm text-center <?php if ($list <= 1) {
+                                                  echo 'disabled';
+                                                } ?>" style="background-color: red; padding: 10px;width: 100% ;color: white;" href="play.php?id=<?= $id ?>&list=<?= $list - 1 ?>">ตอนก่อนหน้า</a>
+          </div>
+          <div class="col-md-4">
+            <a class="btn shadow-sm text-center " style="background-color: red; padding: 10px;width: 100% ;color: white;" href="list.php?id=<?= $id ?>&list=<?= $list ?>">ตอนอื่นๆ</a>
+          </div>
+          <div class="col-md-4">
+            <a class="btn shadow-sm text-center <?php if ($list >= $num_row) {echo 'disabled';
+} ?>" style=" background-color: red; padding: 10px;width: 100% ;color: white;" href="play.php?id=<?= $id ?>&list=<?= $list + 1 ?>">ตอนถัดไป</a>
+          </div>
+        </div>
+
+        <!-- ปุ่มด้านล่าง -->
+      <?php } ?>
+
     </div>
   </div>
-  <!--Play-->
+
 
   </div>
 
   <br>
-  <center>
-    <footer class="blog-footer">
-      <p>จัดทำโดย เด็กชาย ประหยัด จันทร์อังคาร์</p>
-    </footer>
-  </center>
+
 
 
 

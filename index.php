@@ -16,6 +16,7 @@ $limit_start = ($page * $limit_page) - $limit_page;
 if (!($num_page == (int)$num_page)) {
   $num_page = (int)$num_page + 1;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +27,7 @@ if (!($num_page == (int)$num_page)) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SubJect CEI3104</title>
+  <link rel="stylesheet" href="styleindex.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -34,7 +36,7 @@ if (!($num_page == (int)$num_page)) {
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="   background-color: #53a2f1!important">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="   background-color: #000000!important">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -42,13 +44,11 @@ if (!($num_page == (int)$num_page)) {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">หน้าแรก <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#"style="color: white;">หน้าแรก <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">ยอดฮิตติดอันดับ</a>
-        </li>
+       
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             หมวดหมุ่
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -59,10 +59,10 @@ if (!($num_page == (int)$num_page)) {
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="#">เข้าสู่ระบบ</a>
+          <a class="nav-link " href="#"style="color: white;">เข้าสู่ระบบ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="#">ออกจากระบบ</a>
+          <a class="nav-link " href="#"style="color: white;">ออกจากระบบ</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -73,27 +73,27 @@ if (!($num_page == (int)$num_page)) {
   </nav>
 
   <!-- หน้าหนัง -->
-  <div class="album py-5 bg-light " style="background-color: #a2c9f0!important">
+  <div class="album py-5 bg-light " style="background-color: #b0b0b0!important">
     <div class="container">
 
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="./">หน้าแรก</a></li>
-          <li class="breadcrumb-item active"><a href="#"></a></li>
-        </ol>
-      </nav>
+      <div class="title-box-movie">
+        <div class="h1-text" >
+          <h1>ดูหนังยอดฮิต มาใหม่ ไฟแรง</h1>
+        </div>
+      </div>
 
-      <div class="row">
+      <div class="row" style="margin-top: 15px;">
         <?php
         $query  = mysqli_query($dbcon, "SELECT * FROM data_movie ORDER BY id DESC LIMIT $limit_start,$limit_page");
         while ($rs = mysqli_fetch_array($query)) {
         ?>
           <div class="col-md-3">
-            <div class="card mb-4 shadow-sm">
-              <a href="./play.php?id=<?= $rs['id'] ?>">
+            <div class="card mb-4 shadow-sm bg-dark" >
+              <a  style="text-decoration:none;" 
+              href="<?php if($rs['status_list'] == 'YES'){ ?>list<?php }else{?>play<?php }?>.php?id=<?= $rs['id'] ?>">
                 <img src="./images/<?= $rs['img'] ?>" while="100%" height="380" class="card-img-top">
                 <div class="card-body">
-                  <p class="card-text text-center" style="white-space: nowrap;overflow :hidden; text-overflow:ellipsis;"><?= $rs['name'] ?></p>
+                  <p class="card-text text-center" style="white-space: nowrap;overflow :hidden; text-overflow:ellipsis; color:white;"><?= $rs['name'] ?></p>
                 </div>
             </div>
           </div>
