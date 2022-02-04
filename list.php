@@ -1,4 +1,5 @@
 <?php
+
 require 'connectdb.php';
 $id = $_GET['id'];
 if (!$id) {
@@ -59,10 +60,7 @@ $query_list = mysqli_query($dbcon, $sql_list)
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="#"style="color: white;">เข้าสู่ระบบ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="#"style="color: white;">ออกจากระบบ</a>
+                    <a class="nav-link " href="logout.php"style="color: white;">ออกจากระบบ</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">

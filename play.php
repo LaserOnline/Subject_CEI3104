@@ -1,4 +1,5 @@
 <?php
+
 require 'connectdb.php';
 $id = @$_GET['id'];
 if (!$id) {
@@ -45,7 +46,7 @@ if (!$list) {
 <body>
 
   <!--ส่วน Navbar-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="   background-color: #000000!important">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="   background-color: #c00513!important">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -122,7 +123,7 @@ if (!$list) {
         <!-- ถ้าเป้นซี่รี่ย์ให้ทำอันนี้ -->
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item active" style="color: black;font-size: 25px; font-weight: bold; "><?= $result['vdo'] ?><a href="./list.php?id=<?= $id ?>" style="text-decoration:none; color: green;"> / ดูตอนอื่นๆ</a></li>
+            <li class="breadcrumb-item active" style="color: black;font-size: 25px; font-weight: bold; "><?= $result['name'] ?><a href="./list.php?id=<?= $id ?>" style="text-decoration:none; color: green;"> / ดูตอนอื่นๆ</a></li>
           </ol>
         </nav>
         <div class="col-md-12">

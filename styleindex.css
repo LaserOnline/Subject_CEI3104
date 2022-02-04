@@ -2,10 +2,10 @@
     overflow: hidden;
 }
 .h1-text h1, .h1-text h4 {
-    margin: 0;
-    color: #fff;
-    font-size: 20px;
-    background: #810016;
+    margin: 10px;
+    color: white;;;
+    font-size: 30px;
+    background: black;;;
     text-align: center;
     padding: 10px 0;
     border-radius: 10px;

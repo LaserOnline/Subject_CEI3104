@@ -1,12 +1,12 @@
 <?php
+
 require 'connectdb.php';
 $num_rows = mysqli_num_rows(mysqli_query($dbcon, "SELECT * FROM data_movie"));
-
 $limit_page = 12;
 
-if(isset($_GET['Page'])){
+if (isset($_GET['Page'])) {
   $page = $_GET['Page'];
-}else{
+} else {
   $page = 1;
 }
 
@@ -17,7 +17,11 @@ if (!($num_page == (int)$num_page)) {
   $num_page = (int)$num_page + 1;
 }
 
+
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +40,8 @@ if (!($num_page == (int)$num_page)) {
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="   background-color: #000000!important">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="   background-color: #aa0000!important">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -44,9 +49,9 @@ if (!($num_page == (int)$num_page)) {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#"style="color: white;">หน้าแรก <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="index.php" style="color: white;">หน้าแรก <span class="sr-only">(current)</span></a>
         </li>
-       
+
         <li class="nav-item dropdown">
           <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             หมวดหมุ่
@@ -59,10 +64,7 @@ if (!($num_page == (int)$num_page)) {
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="#"style="color: white;">เข้าสู่ระบบ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="#"style="color: white;">ออกจากระบบ</a>
+          <a class="nav-link " href="login/from_login.php" style="color: white;">เข้าสู่ระบบ</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -73,11 +75,11 @@ if (!($num_page == (int)$num_page)) {
   </nav>
 
   <!-- หน้าหนัง -->
-  <div class="album py-5 bg-light " style="background-color: #b0b0b0!important">
+  <div class="album py-5 bg-light " style="background-color: white">
     <div class="container">
 
       <div class="title-box-movie">
-        <div class="h1-text" >
+        <div class="h1-text">
           <h1>ดูหนังยอดฮิต มาใหม่ ไฟแรง</h1>
         </div>
       </div>
@@ -88,12 +90,11 @@ if (!($num_page == (int)$num_page)) {
         while ($rs = mysqli_fetch_array($query)) {
         ?>
           <div class="col-md-3">
-            <div class="card mb-4 shadow-sm bg-dark" >
-              <a  style="text-decoration:none;" 
-              href="<?php if($rs['status_list'] == 'YES'){ ?>list<?php }else{?>play<?php }?>.php?id=<?= $rs['id'] ?>">
+            <div class="card mb-4 shadow-sm ">
+              <a style="text-decoration:none;" href="<?php if ($rs['status_list'] == 'YES') { ?>list<?php } else { ?>play<?php } ?>.php?id=<?= $rs['id'] ?>">
                 <img src="./images/<?= $rs['img'] ?>" while="100%" height="380" class="card-img-top">
                 <div class="card-body">
-                  <p class="card-text text-center" style="white-space: nowrap;overflow :hidden; text-overflow:ellipsis; color:white;"><?= $rs['name'] ?></p>
+                  <p class="card-text text-center" style="white-space: nowrap;overflow :hidden; text-overflow:ellipsis; color:black;"><?= $rs['name'] ?></p>
                 </div>
             </div>
           </div>
