@@ -39,7 +39,7 @@
                     <input class="form-check-input"type="radio" name="status_list" value="NO" >
                     <label class="form-check-label">NO</label>
                 </div>
-                <button style="margin-top: 10px;" type="submit" class="btn btn-danger"><a style="text-decoration: none;color: white;" href="../login/admin.php">กลับหน้า Addmin</a></button>
+                <button style="margin-top: 10px;" class="btn btn-danger"><a style="text-decoration: none;color: white;" href="../login/admin.php">กลับหน้า Addmin</a></button>
                 <button style="margin-top: 10px;" type="submit" class="btn btn-success">ยืนยัน</button>
             </div>
         </form>
