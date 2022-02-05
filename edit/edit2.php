@@ -5,7 +5,7 @@
     $vdo = $_GET['vdo'];
     $part = $_GET['part'];
       
-    $sql = "UPDATE data_list SET name='$name',vdo='$vdo',part='$part' WHERE id = $edit_id "; 
+    $sql = "UPDATE data_list SET name='$name',vdo='$vdo',part='$part',series_time=NOW() WHERE id = $edit_id "; 
     $result = mysqli_query($dbcon,$sql);
 
     if($result) {
