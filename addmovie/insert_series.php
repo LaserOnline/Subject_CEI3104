@@ -10,9 +10,9 @@ $part = $_POST['part'];
 
 
 
-$sql = "INSERT INTO data_list (main_id,name,vdo,part)";
+$sql = "INSERT INTO data_list (main_id,name,vdo,part,sereis_time)";
 
-$sql .= " VALUES ('$main_id','$name','$vdo','$part')";
+$sql .= " VALUES ('$main_id','$name','$vdo','$part',NOW())";
 
 $result = mysqli_query($dbcon, $sql);
 

@@ -9,9 +9,9 @@ $vdo_main = $_POST['vdo_main'];
 $status_list = $_POST['status_list'];
 
 
-$sql = "INSERT INTO data_movie (name,img,vdo_ex,vdo_main,status_list)";
+$sql = "INSERT INTO data_movie (name,img,vdo_ex,vdo_main,status_list,movie_time)";
 
-$sql .= " VALUES ('$name','$img','$vdo_ex','$vdo_main','$status_list')";
+$sql .= " VALUES ('$name','$img','$vdo_ex','$vdo_main','$status_list',NOW())";
 
 $result = mysqli_query($dbcon, $sql);
 

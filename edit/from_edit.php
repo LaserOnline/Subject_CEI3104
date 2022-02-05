@@ -23,22 +23,22 @@ $result = mysqli_fetch_array($query);
         <h1 style="text-align: center;">แก้ไขหนัง</h1>
         <form method="GET" action="edit.php">
         <label style="margin-top: 10px;" for="exampleInputEmail1">หนังเรื่องที่</label>
-                <input class="form-control" name="id" placeholder="<?= $result['id'] ?>">
+                <input class="form-control" name="id" value="<?= $result['id'] ?>">
             <div class="form-group">
                 <label style="margin-top: 10px;" for="exampleInputEmail1">ชื่อหนัง</label>
-                <input class="form-control" name="name" placeholder="<?= $result['name'] ?>">
+                <input class="form-control" name="name" value="<?= $result['name'] ?>">
             </div>
             <div class="form-group">
                 <label style="margin-top: 10px;" for="exampleInputPassword1">ชื่อรูปหนัง</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" name="img" placeholder="<?= $result['img'] ?>">
+                <input type="text" class="form-control" id="exampleInputPassword1" name="img" value="<?= $result['img'] ?>">
             </div>
             <div class="form-group">
                 <label style="margin-top: 10px;" for="exampleInputPassword1">ลิ้งวิดีโอตัวอย่าง</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" name="vdo_ex" placeholder="<?= $result['vdo_ex'] ?>">
+                <input type="text" class="form-control" id="exampleInputPassword1" name="vdo_ex" value="<?= $result['vdo_ex'] ?>">
             </div>
             <div class="form-group">
                 <label style="margin-top: 10px;" for="exampleInputPassword1">ลิ้งวิดีโอหลัก</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" name="vdo_main" placeholder="<?= $result['vdo_main'] ?>">
+                <input type="text" class="form-control" id="exampleInputPassword1" name="vdo_main" value="<?= $result['vdo_main'] ?>">
 
                 <label style="margin-top: 10px;" for="exampleInputPassword1">วิดีโอเป็นซี่รี่ย์ไหม</label>
 

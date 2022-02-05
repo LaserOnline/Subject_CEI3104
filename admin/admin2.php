@@ -1,7 +1,7 @@
 <?php
 require 'session.php';
 require '../connectdb.php';                                                                                             //asc จากมากไปหาน้อย
-$sql = "SELECT * FROM data_list";
+$sql = "SELECT * FROM data_list ORDER BY id DESC";
 $result_movie = mysqli_query($dbcon, $sql);
 ?>
 <!DOCTYPE html>
@@ -41,6 +41,7 @@ $result_movie = mysqli_query($dbcon, $sql);
                     <th scope="col">ตอนที่</th>
                     <th scoop="col">แก้ไข</th>
                     <th scoop="col">ลบ</th>
+                    <th scoop="col">เวลาที่ทำการแก้ไข</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,6 +56,7 @@ $result_movie = mysqli_query($dbcon, $sql);
                     <td><?php echo $row_movie['part'] ?></td>
                     <td><a style="text-decoration: none;color: orange;" href="../edit/from_edit2.php?id=<?= $row_movie['id']; ?>">edit</a></td>
                     <td><a style="text-decoration: none;color: red;" href="../delete2.php?id=<?= $row_movie['id']; ?>" onclick="return confirm('ต้องการลบใช่หรือไม่');">Delete</a></td>
+                    <td><?php echo $row_movie['movie_time'] ?></td>
                 </tr>
             <?php } ?>
             </tr>

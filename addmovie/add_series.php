@@ -7,6 +7,7 @@ $query2 = mysqli_query($dbcon, $sql2);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,11 +15,12 @@ $query2 = mysqli_query($dbcon, $sql2);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Document</title>
 </head>
+
 <body>
     <div style="width: 25%;margin: 70px 0 0 690px ;">
         <h1 style="text-align: center;">เพิ่มตอนซี่รีย์ </h1>
         <form method="post" action="insert_series.php">
-        <select class="form-select" name='id'>
+            <select class="form-select" name='id'>
                 <option selected>เลือกหนังเพื่อเพิ่มตอน</option>
                 <?php while ($result_movie = mysqli_fetch_assoc($query2)) { ?>
                     <option value="<?= $result_movie['id'] ?>"><?= $result_movie['name'] ?></option>
