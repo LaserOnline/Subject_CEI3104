@@ -1,9 +1,7 @@
 <?php
 
 require 'connectdb.php';
-//? include 'admin/session.php'; กูใส่ Path ไมผิดยังไงวะ แก้ได้ก็ดี 
-require 'session_user.php'; //? สร้างมาแทนอันบน ที่มันหา path session ไมเจอ ก็สร้างอยู่ที่เดียวกันเลยแมร่ง
-
+require 'session_user.php';
 
 $id = @$_GET['id'];
 if (!$id) {
