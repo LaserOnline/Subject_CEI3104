@@ -75,6 +75,7 @@ $query_list = mysqli_query($dbcon, $sql_list)
 
     <div class="album py-5 bg-light">
         <div class="container">
+            
             <!-- Nav -->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">

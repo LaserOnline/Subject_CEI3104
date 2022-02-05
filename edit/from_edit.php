@@ -41,15 +41,31 @@ $result = mysqli_fetch_array($query);
                 <input type="text" class="form-control" id="exampleInputPassword1" name="vdo_main" value="<?= $result['vdo_main'] ?>">
 
                 <label style="margin-top: 10px;" for="exampleInputPassword1">วิดีโอเป็นซี่รี่ย์ไหม</label>
-
+            <?php 
+            if($result['status_list'] == 'YES'){
+                ?>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="status_list" value="YES">
+                    <input class="form-check-input" type="radio" name="status_list" value="YES" checked>
                     <label class="form-check-label">YES</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="status_list" value="NO">
+                    <input class="form-check-input c" type="radio" name="status_list" value="NO">
                     <label class="form-check-label">NO</label>
                 </div>
+            <?php }else{ ?>
+                    <div class="form-check">
+                    <input class="form-check-input" type="radio" name="status_list" value="YES" >
+                    <label class="form-check-label">YES</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input c" type="radio" name="status_list" value="NO"checked>
+                    <label class="form-check-label">NO</label>
+                </div>
+           <?php } ?>
+
+
+
+
                 <button style="margin-top: 10px;" class="btn btn-danger"><a style="text-decoration: none;color: white;" href="../../Subject_CEI3104/admin/admin.php">กลับหน้า Addmin</a></button>
                 <button style="margin-top: 10px;" type="submit" class="btn btn-success">ยืนยัน</button>
             </div>

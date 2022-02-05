@@ -89,7 +89,7 @@ if (!($num_page == (int)$num_page)) {
   <div class="album py-5 bg-light " style="background-color: white">
  <?php if (isset($_SESSION['is_member'])) {
         ?>
-    <div class="card" style="width: 10rem;height: 3rem;margin: -47px 0 0 1700px;">
+    <div class="card" style="width: 10rem;height: 3rem;margin: -45px 0 0 1755px;">
       <div class="card-body">
        
           <p style="margin-top: -10px;">
@@ -99,9 +99,6 @@ if (!($num_page == (int)$num_page)) {
       </div>
     </div>
   <?php } ?>
-
-
-
     <div class="container">
 
       <div class="title-box-movie">
