@@ -70,12 +70,12 @@ if (!($num_page == (int)$num_page)) {
           <button  type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
           </li>
           <?php } ?>
-          <?php if (!isset($_SESSION['is_member'])) { ?>
-            <?php if (!isset($_SESSION['is_admin'])) { ?>
-          <li class="nav-item">
+          <?php if (!isset($_SESSION['is_member'])) { ?>    
+            <?php if (!isset($_SESSION['is_admin'])) { ?> 
+            <li class="nav-item">
           <button  type="button" class="btn btnx-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/login/login.html">เข้าสู่ระบบ</a></button>
-          </li>
-          <?php } ?>
+           </li>
+           <?php } ?>
           <?php } ?>
           <?php if (isset($_SESSION['is_admin'])) { ?>
           <li class="nav-item">
