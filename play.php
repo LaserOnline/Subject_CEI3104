@@ -21,7 +21,7 @@ if (!$list) {
   $result = mysqli_fetch_array($query);
   $num_row = mysqli_num_rows($query);
 
-  $sql_row = "SELECT  * FROM data_list";
+  $sql_row = "SELECT * FROM data_list WHERE main_id='$id'";
   $result_row = mysqli_query($dbcon, $sql_row);
   $num_row = mysqli_num_rows($result_row);
 }
@@ -71,9 +71,9 @@ if (!$list) {
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </li>
-        
+
         <li class="nav-item">
-        <button  type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
+          <button type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -86,16 +86,16 @@ if (!$list) {
 
   <div class="album py-5 bg-light">
     <div class="container">
-    <?php if (isset($_SESSION['is_member'])) {
-        ?>
-    <div class="card" style="width: 10rem;height: 3rem;margin: -45px 0 0 1755px;">
-      <div class="card-body"> 
-          <p style="margin-top: -10px;">
-             คุณ  <?php echo $_SESSION['login_username']; ?>
-        </p>   
-      </div>
-    </div>
-  <?php } ?>
+      <?php if (isset($_SESSION['is_member'])) {
+      ?>
+        <div class="card" style="width: 10rem;height: 3rem;margin: -45px 0 0 1755px;">
+          <div class="card-body">
+            <p style="margin-top: -10px;">
+              คุณ <?php echo $_SESSION['login_username']; ?>
+            </p>
+          </div>
+        </div>
+      <?php } ?>
       <!-- ส่วนเล่นหนัง -->
       <?php
       if (!$list) {
@@ -159,8 +159,9 @@ if (!$list) {
             <a class="btn shadow-sm text-center " style="background-color: red; padding: 10px;width: 100% ;color: white;" href="list.php?id=<?= $id ?>&list=<?= $list ?>">ตอนอื่นๆ</a>
           </div>
           <div class="col-md-4">
-            <a class="btn shadow-sm text-center <?php if ($list >= $num_row) {echo 'disabled';
-} ?>" style=" background-color: red; padding: 10px;width: 100% ;color: white;" href="play.php?id=<?= $id ?>&list=<?= $list + 1 ?>">ตอนถัดไป</a>
+            <a class="btn shadow-sm text-center <?php if ($list >= $num_row) {
+                                                  echo 'disabled';
+                                                } ?>" style=" background-color: red; padding: 10px;width: 100% ;color: white;" href="play.php?id=<?= $id ?>&list=<?= $list + 1 ?>">ตอนถัดไป</a>
           </div>
         </div>
 
