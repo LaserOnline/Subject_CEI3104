@@ -65,17 +65,17 @@ if (!($num_page == (int)$num_page)) {
           </div>
         </li>
         <li class="nav-item">
-        <?php if (isset($_SESSION['is_member'])) { ?>
-          <li class="nav-item">
-          <button  type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
-          </li>
-          <?php } ?>
-          <?php if (!isset($_SESSION['is_member'])) { ?>
-          <li class="nav-item">
-          <button  type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/login/login.html">เข้าสู่ระบบ</a></button>
-          </li>
-          <?php } ?>
+          <?php if (isset($_SESSION['is_member'])) { ?>
+        <li class="nav-item">
+          <button type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
         </li>
+      <?php } ?>
+      <?php if (!isset($_SESSION['is_member'])) { ?>
+        <li class="nav-item">
+          <button type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/login/login.html">เข้าสู่ระบบ</a></button>
+        </li>
+      <?php } ?>
+      </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -85,7 +85,23 @@ if (!($num_page == (int)$num_page)) {
   </nav>
 
   <!-- หน้าหนัง -->
+
   <div class="album py-5 bg-light " style="background-color: white">
+ <?php if (isset($_SESSION['is_member'])) {
+        ?>
+    <div class="card" style="width: 10rem;height: 3rem;margin: -47px 0 0 1700px;">
+      <div class="card-body">
+       
+          <p style="margin-top: -10px;">
+             คุณ  <?php echo $_SESSION['login_username']; ?>
+        </p>
+      
+      </div>
+    </div>
+  <?php } ?>
+
+
+
     <div class="container">
 
       <div class="title-box-movie">

@@ -59,7 +59,7 @@ $result_movie = mysqli_query($dbcon, $sql);
                     <td><?php echo $row_movie['img'] ?></td>
                     <td><?php echo $row_movie['vdo_ex'] ?></td>
                     <td><?php echo $row_movie['vdo_main'] ?></td>
-                    <td><?php echo $row_movie['status_list'] ?></td>
+                    <td style="padding-left: 10px" ><?php echo $row_movie['status_list'] ?></td>
                     <td><a style="text-decoration: none;color: orange;" href="../edit/from_edit.php?id=<?= $row_movie['id']; ?>">edit</a></td>
                     <td><a style="text-decoration: none;color: red;" href="../delete.php?id=<?= $row_movie['id']; ?>" onclick="return confirm('ต้องการลบใช่หรือไม่');">Delete</a></td>
                     <td><?php echo $row_movie['movie_time'] ?></td>

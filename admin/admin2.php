@@ -56,7 +56,7 @@ $result_movie = mysqli_query($dbcon, $sql);
                     <td><?php echo $row_movie['part'] ?></td>
                     <td><a style="text-decoration: none;color: orange;" href="../edit/from_edit2.php?id=<?= $row_movie['id']; ?>">edit</a></td>
                     <td><a style="text-decoration: none;color: red;" href="../delete2.php?id=<?= $row_movie['id']; ?>" onclick="return confirm('ต้องการลบใช่หรือไม่');">Delete</a></td>
-                    <td><?php echo $row_movie['movie_time'] ?></td>
+                    <td><?php echo $row_movie['series_time'] ?></td>
                 </tr>
             <?php } ?>
             </tr>
