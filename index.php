@@ -72,7 +72,7 @@ if (!($num_page == (int)$num_page)) {
       <?php } ?>
       <?php if (!isset($_SESSION['is_member'])) { ?>
         <li class="nav-item">
-          <button type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/login/login.html">เข้าสู่ระบบ</a></button>
+          <button type="button" class="btn btn-light"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/login/login.html">เข้าสู่ระบบ</a></button>
         </li>
       <?php } ?>
       </li>
