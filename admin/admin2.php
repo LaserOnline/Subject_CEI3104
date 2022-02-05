@@ -53,6 +53,7 @@ $result_movie = mysqli_query($dbcon, $sql);
                     ?>
                 <tr>
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <td style="padding-left: 37px;"><?php echo $row_movie['main_id'] ?></td>
                     <td><?php echo $row_movie['name'] ?></td>
                     <td><?php echo $row_movie['vdo'] ?></td>
@@ -61,6 +62,8 @@ $result_movie = mysqli_query($dbcon, $sql);
                     <td><a style="text-decoration: none;color: red;" href="../delete2.php?id=<?= $row_movie['id']; ?>" onclick="return confirm('ต้องการลบใช่หรือไม่');">Delete</a></td>
                     <td><?php echo $row_movie['series_time'] ?></td>
 =======
+=======
+>>>>>>> 8f58132c11521d8cc542d80c06b9499d7b28e449
                         <td style="padding-left: 37px;"><?php echo $row_movie['main_id'] ?></td>
                         <td><?php echo $row_movie['name'] ?></td>
                         <td><?php echo $row_movie['vdo'] ?></td>
@@ -69,6 +72,9 @@ $result_movie = mysqli_query($dbcon, $sql);
                         <td><a style="text-decoration: none;color: red;" href="../delete2.php?id=<?= $row_movie['id']; ?>" onclick="return confirm('ต้องการลบใช่หรือไม่');">Delete</a></td>
                         <td><?php echo $row_movie['series_time'] ?></td>
                 
+<<<<<<< HEAD
+>>>>>>> 8f58132c11521d8cc542d80c06b9499d7b28e449
+=======
 >>>>>>> 8f58132c11521d8cc542d80c06b9499d7b28e449
                 </tr>
             <?php } ?>
