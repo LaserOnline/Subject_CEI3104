@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Login</title>
+
+</head>
+
+<body>
+    
+    <h2>Movie ThaiHub</h2>
+    <div class="container" id="container">
+        
+        <div class="form-container sign-in-container">
+            
+            <form action="login_db.php" method="post">
+
+                <h1>Sign in</h1>
+                <span>or use your account</span>
+                <input type="text" placeholder="ผู้ใช้" name="login_username" required>
+                <input type="password" placeholder="รหัสผ่าน" name="login_password" required>
+                <a href="#">ฉันลืมรหัสผ่าน?</a>
+                <button type="submit">Login</button>
+
+            </form>
+        </div>
+
+        <div class="overlay-container">
+            
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+
+                <div class="overlay-panel overlay-right">
+                    <h1>Your Have Username?</h1>
+                    <p>เว็บนี้ทำเพื่อส่งงาน อาจารย์ </p>
+                    <button class="ghost" id="signUp"><a href="../register//register.html">Register</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

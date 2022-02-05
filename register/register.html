@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="skin.css">
+    <title>Register</title>
+
+</head>
+
+<body>
+
+<form action="register.php" method="POST">
+
+  <div class="container">
+
+    <h1>สมัคร</h1>
+    <hr>
+ 
+    <label for="login_username"><b>UserName</b></label>
+    <input type="text" placeholder="กรุณาใส่ UserName" name="login_username" id="login_username" required>
+
+    <label for="login_password"><b>Password</b></label>
+    <input type="text" placeholder="กรุณาใส่ Password" name="login_password" id="login_password" required>
+
+    <label for="login_password1"><b>Password</b></label>
+    <input type="text" placeholder="กรุณาใส่ Password" name="login_password1" id="login_password1" required>
+
+    <label for="login_email"><b>Email</b></label>
+    <input type="email" placeholder="กรุณใส่ อีเมล" name="login_email" id="login_email" required>
+
+    <hr>
+
+    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+    <button type="submit" name="'register'" class="registerbtn">Register</button>
+    
+  </div>
+
+  <div class="container signin">
+    <p>ฉันมีรหัสแล้ว ? <a href="../login/login.html">Sign in</a>.</p>
+  </div>
+
+</form>
+
+</body>
+
+</html>

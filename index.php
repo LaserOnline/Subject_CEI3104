@@ -1,6 +1,7 @@
 <?php
-
+session_start();
 require 'connectdb.php';
+
 $num_rows = mysqli_num_rows(mysqli_query($dbcon, "SELECT * FROM data_movie"));
 $limit_page = 12;
 
@@ -64,12 +65,16 @@ if (!($num_page == (int)$num_page)) {
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="login/from_login.php" style="color: white;">เข้าสู่ระบบ</a>
+        <?php if (isset($_SESSION['is_member'])) { ?>
+          <li class="nav-item">
+          <button style="margin: 15px 0 0 5px;" type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="admin/logout.php">ออกจากระบบ</a></button>
+          </li>
+          <?php } ?>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-dark" my-2 my-sm-0" type="submit">ค้นหา</button>
+        <button class="btn btn-dark" my-2 my-sm-0 type="submit">ค้นหา</button>
       </form>
     </div>
   </nav>
