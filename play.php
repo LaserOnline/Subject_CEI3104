@@ -72,11 +72,9 @@ if (!$list) {
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </li>
+        
         <li class="nav-item">
-          <a class="nav-link " href="#" style="color: white;">เข้าสู่ระบบ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="#" style="color: white;">ออกจากระบบ</a>
+        <button  type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">

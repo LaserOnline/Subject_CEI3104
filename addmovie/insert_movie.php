@@ -16,7 +16,7 @@ $sql .= " VALUES ('$name','$img','$vdo_ex','$vdo_main','$status_list')";
 $result = mysqli_query($dbcon, $sql);
 
 if ($result) {
-    echo "บันทึกข้อมูลเรียบร้อย";
+    header('location: ../../../../Subject_CEI3104/success.php');
 } else {
     echo "เกิดข้อผิดพลาด" . mysqli_error($dbcon);
 }

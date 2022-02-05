@@ -33,7 +33,7 @@ $query2 = mysqli_query($dbcon, $sql2);
                 <input type="text" class="form-control" id="exampleInputPassword1" name="vdo">
                 <label style="margin-top: 10px;" for="exampleInputPassword1">เพิ่มตอนที่</label>
                 <input type="text" class="form-control" id="exampleInputPassword1" name="part">
-                <button style="margin-top: 10px;"  class="btn btn-danger"><a style="text-decoration: none;color: white;" href="../login/admin.php">กลับหน้า Addmin</a></button>
+                <button style="margin-top: 10px;" class="btn btn-danger"><a style="text-decoration: none;color: white;" href="../../Subject_CEI3104/admin/admin.php">กลับหน้า Addmin</a></button>
                 <button style="margin-top: 10px;" type="submit" class="btn btn-success"><a href="id?=<?= $series_id ?>"></a>ยืนยัน</button>
             </div>
         </form>

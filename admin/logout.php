@@ -3,6 +3,6 @@
 
     if(session_destroy())
     {
-        header('location: ../login/login.html');
+        header('location: ../../../../Subject_CEI3104/index.php');
     }
 ?>

@@ -7,7 +7,7 @@
     $sql  = "DELETE FROM data_list WHERE id='$del_id'";
     $result = mysqli_query($dbcon, $sql);
     if($result) {
-        header("Location: login/admin2.php");   
+        header("Location: ../SUBJECT_CEI3104/admin/admin2.php");
     }else{
         echo "เกิดข้อผิดพลาด" . mysqli_error($dbcon);
     }

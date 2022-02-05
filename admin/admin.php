@@ -31,7 +31,7 @@ $result_movie = mysqli_query($dbcon, $sql);
     <button style="margin: 15px 0 0 5px;" type="button" class="btn btn-success"><a style="color: white;text-decoration:none;padding: 1px;" href="../addmovie/addmovie.php">เพิ่มหนัง</a></a></button>
     <button style="margin: 15px 0 0 5px;" type="button" class="btn btn-primary"><a style="color: white;text-decoration:none;padding: 1px;" href="../addmovie/add_series.php">เพิ่มตอนซี่รีย์</a></a></button>
     <button style="margin: 15px 0 0 5px;" type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="admin2.php">รายชื่อซีรีย์ทั้งหมด</a></button>
-    <button style="margin: 15px 0 0 5px;" type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="logout.php">ออกจากระบบ</a></button>
+    <button style="margin: 15px 0 0 1130px;" type="button" class="btn btn-danger"><a style="color: black;text-decoration:none;padding: 1px;color: white;" href="logout.php">ออกจากระบบ</a></button>
     
     <div style="width: 85%;padding-left: 10%;margin-top: 20px;">
         <table class="table table-striped table-hover ">

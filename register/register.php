@@ -57,7 +57,7 @@ $login_email	= ($_POST["login_email"]);
                 mysqli_query($dbcon,$add);
                 //header('location: success.php?code=1');
                 //header('location: index.php');
-                header('location: ../index.php');
+                header('location: ../../../index.php');
              }else
               {
                 echo "เกิดข้อผิดพลาด " .mysqli_error($dbcon);
