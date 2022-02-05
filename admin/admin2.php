@@ -6,6 +6,7 @@ $result_movie = mysqli_query($dbcon, $sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@ $result_movie = mysqli_query($dbcon, $sql);
     <link href="../lightbox/css/lightbox.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
+
 <body>
     <div class="card" style="width: 20rem;margin: 22px 0 0 20px;">
         <div class="card-body">
@@ -31,12 +33,12 @@ $result_movie = mysqli_query($dbcon, $sql);
     <button style="margin: 15px 0 0 5px;" type="button" class="btn btn-primary"><a style="color: white;text-decoration:none;padding: 1px;" href="../addmovie/add_series.php">เพิ่มตอนซี่รีย์</a></a></button>
     <button style="margin: 15px 0 0 5px;" type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="admin.php">รายชื่อหนังทั้งหมด</a></button>
     <button style="margin: 15px 0 0 1130px;" type="button" class="btn btn-danger"><a style="color: black;text-decoration:none;padding: 1px;color: white;" href="logout.php">ออกจากระบบ</a></button>
-    <div style="width: 85%;padding-left: 10%;margin-top: 20px;">
+    <div style="width: 80%;padding-left: 10%;margin-top: 20px;">
         <table class="table table-striped table-hover ">
             <thead>
                 <tr>
                     <th scope="col">หนังเรื่องที่</th>
-                    <th ชื่อหนัง scope="col">ชื่อหนัง</th>                  
+                    <th ชื่อหนัง scope="col">ชื่อหนัง</th>
                     <th scope="col">วิดีโอหนังตัวหลัก</th>
                     <th scope="col">ตอนที่</th>
                     <th scoop="col">แก้ไข</th>
@@ -50,6 +52,7 @@ $result_movie = mysqli_query($dbcon, $sql);
                     while ($row_movie = mysqli_fetch_assoc($result_movie)) { // วนลูปข้อมูล ใน database ออกมาเป็นตาราง 
                     ?>
                 <tr>
+<<<<<<< HEAD
                     <td style="padding-left: 37px;"><?php echo $row_movie['main_id'] ?></td>
                     <td><?php echo $row_movie['name'] ?></td>
                     <td><?php echo $row_movie['vdo'] ?></td>
@@ -57,6 +60,16 @@ $result_movie = mysqli_query($dbcon, $sql);
                     <td><a style="text-decoration: none;color: orange;" href="../edit/from_edit2.php?id=<?= $row_movie['id']; ?>">edit</a></td>
                     <td><a style="text-decoration: none;color: red;" href="../delete2.php?id=<?= $row_movie['id']; ?>" onclick="return confirm('ต้องการลบใช่หรือไม่');">Delete</a></td>
                     <td><?php echo $row_movie['series_time'] ?></td>
+=======
+                        <td style="padding-left: 37px;"><?php echo $row_movie['main_id'] ?></td>
+                        <td><?php echo $row_movie['name'] ?></td>
+                        <td><?php echo $row_movie['vdo'] ?></td>
+                        <td><?php echo $row_movie['part'] ?></td>
+                        <td><a style="text-decoration: none;color: orange;" href="../edit/from_edit2.php?id=<?= $row_movie['id']; ?>">edit</a></td>
+                        <td><a style="text-decoration: none;color: red;" href="../delete2.php?id=<?= $row_movie['id']; ?>" onclick="return confirm('ต้องการลบใช่หรือไม่');">Delete</a></td>
+                        <td><?php echo $row_movie['series_time'] ?></td>
+                
+>>>>>>> 8f58132c11521d8cc542d80c06b9499d7b28e449
                 </tr>
             <?php } ?>
             </tr>

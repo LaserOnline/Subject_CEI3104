@@ -3,6 +3,7 @@
 require 'connectdb.php';
 require 'session_user.php';
 
+
 $id = @$_GET['id'];
 if (!$id) {
   echo 'NO ID';
@@ -85,6 +86,16 @@ if (!$list) {
 
   <div class="album py-5 bg-light">
     <div class="container">
+    <?php if (isset($_SESSION['is_member'])) {
+        ?>
+    <div class="card" style="width: 10rem;height: 3rem;margin: -45px 0 0 1755px;">
+      <div class="card-body"> 
+          <p style="margin-top: -10px;">
+             คุณ  <?php echo $_SESSION['login_username']; ?>
+        </p>   
+      </div>
+    </div>
+  <?php } ?>
       <!-- ส่วนเล่นหนัง -->
       <?php
       if (!$list) {
