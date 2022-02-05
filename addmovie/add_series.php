@@ -15,7 +15,7 @@ $query2 = mysqli_query($dbcon, $sql2);
     <title>Document</title>
 </head>
 <body>
-    <div style="width: 25%;margin: 70px 0 0 45px ;">
+    <div style="width: 25%;margin: 70px 0 0 690px ;">
         <h1 style="text-align: center;">เพิ่มตอนซี่รีย์ </h1>
         <form method="post" action="insert_series.php">
         <select class="form-select" name='id'>

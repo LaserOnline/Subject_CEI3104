@@ -11,9 +11,9 @@
 
 <body>
 
-    <div class="card" style="width: 20rem;margin: 30px;">
+    <div class="card" style="height: 8rem;width: 20rem;margin: 40px 0 0 690px;padding: 15px">
         <h2 align="center">ทำการเพิ่ม เรียบร้อย</h2>
-        <button type="button" class="btn btn-success">
+        <button type="button" class="btn btn-success" style="padding: 10px;">
             <a href="../Subject_CEI3104/admin/admin.php" style="text-decoration: none;color: white;">กลับหน้ารายการ</a>
         </button>
         <div class="card-body">

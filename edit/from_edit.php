@@ -1,3 +1,11 @@
+<?php
+require '../connectdb.php';
+$id = $_GET['id'];
+ $id = $id ;
+$sql = "SELECT * FROM data_movie WHERE id = $id";
+$query = mysqli_query($dbcon, $sql);
+$result = mysqli_fetch_array($query);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,24 +19,26 @@
 
 <body>
 
-    <div style="width: 35%;margin: 80px 0 0 600px ;">
-        <h1 style="text-align: center;">เพิ่มหนัง</h1>
-        <form method="post" action="insert_movie.php">
+    <div style="width: 25%;margin: 70px 0 0 45px ;">
+        <h1 style="text-align: center;">แก้ไขหนัง</h1>
+        <form method="GET" action="edit.php">
+        <label style="margin-top: 10px;" for="exampleInputEmail1">หนังเรื่องที่</label>
+                <input class="form-control" name="id" placeholder="<?= $result['id'] ?>">
             <div class="form-group">
                 <label style="margin-top: 10px;" for="exampleInputEmail1">ชื่อหนัง</label>
-                <input class="form-control" name="name">
+                <input class="form-control" name="name" placeholder="<?= $result['name'] ?>">
             </div>
             <div class="form-group">
                 <label style="margin-top: 10px;" for="exampleInputPassword1">ชื่อรูปหนัง</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" name="img">
+                <input type="text" class="form-control" id="exampleInputPassword1" name="img" placeholder="<?= $result['img'] ?>">
             </div>
             <div class="form-group">
                 <label style="margin-top: 10px;" for="exampleInputPassword1">ลิ้งวิดีโอตัวอย่าง</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" name="vdo_ex">
+                <input type="text" class="form-control" id="exampleInputPassword1" name="vdo_ex" placeholder="<?= $result['vdo_ex'] ?>">
             </div>
             <div class="form-group">
                 <label style="margin-top: 10px;" for="exampleInputPassword1">ลิ้งวิดีโอหลัก</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" name="vdo_main">
+                <input type="text" class="form-control" id="exampleInputPassword1" name="vdo_main" placeholder="<?= $result['vdo_main'] ?>">
 
                 <label style="margin-top: 10px;" for="exampleInputPassword1">วิดีโอเป็นซี่รี่ย์ไหม</label>
 

@@ -39,6 +39,7 @@ $result_movie = mysqli_query($dbcon, $sql);
                     <th ชื่อหนัง scope="col">ชื่อหนัง</th>                  
                     <th scope="col">วิดีโอหนังตัวหลัก</th>
                     <th scope="col">ตอนที่</th>
+                    <th scoop="col">แก้ไข</th>
                     <th scoop="col">ลบ</th>
                 </tr>
             </thead>
@@ -52,6 +53,7 @@ $result_movie = mysqli_query($dbcon, $sql);
                     <td><?php echo $row_movie['name'] ?></td>
                     <td><?php echo $row_movie['vdo'] ?></td>
                     <td><?php echo $row_movie['part'] ?></td>
+                    <td><a style="text-decoration: none;color: orange;" href="../edit/from_edit2.php?id=<?= $row_movie['id']; ?>">edit</a></td>
                     <td><a style="text-decoration: none;color: red;" href="../delete2.php?id=<?= $row_movie['id']; ?>" onclick="return confirm('ต้องการลบใช่หรือไม่');">Delete</a></td>
                 </tr>
             <?php } ?>
