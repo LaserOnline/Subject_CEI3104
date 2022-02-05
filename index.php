@@ -65,7 +65,6 @@ if (!($num_page == (int)$num_page)) {
           </div>
         </li>
         <li class="nav-item">
-<<<<<<< HEAD
         <?php if (isset($_SESSION['is_member'])) { ?>
           <li class="nav-item">
           <button  type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
@@ -84,19 +83,6 @@ if (!($num_page == (int)$num_page)) {
           </li>
           <?php } ?>
         </li>    
-=======
-          <?php if (isset($_SESSION['is_member'])) { ?>
-        <li class="nav-item">
-          <button type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
-        </li>
-      <?php } ?>
-      <?php if (!isset($_SESSION['is_member'])) { ?>
-        <li class="nav-item">
-          <button type="button" class="btn btn-light"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/login/login.html">เข้าสู่ระบบ</a></button>
-        </li>
-      <?php } ?>
-      </li>
->>>>>>> 8f58132c11521d8cc542d80c06b9499d7b28e449
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -110,14 +96,10 @@ if (!($num_page == (int)$num_page)) {
   <div class="album py-5 bg-light " style="background-color: white">
  <?php if (isset($_SESSION['is_member'])) {
         ?>
-<<<<<<< HEAD
     <div class="card" style="width: 10rem;height: 3rem;margin: -47px 0 0 1700px;">
 
     <div class="card" style="width: 10rem;height: 3rem;margin: -45px 0 0 1755px;">
 
-=======
-    <div class="card" style="width: 10rem;height: 3rem;margin: -45px 0 0 1755px;">
->>>>>>> 8f58132c11521d8cc542d80c06b9499d7b28e449
       <div class="card-body">
        
           <p style="margin-top: -10px;">
