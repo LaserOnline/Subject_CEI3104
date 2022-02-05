@@ -57,11 +57,13 @@ $login_email	= ($_POST["login_email"]);
                 mysqli_query($dbcon,$add);
                 //header('location: success.php?code=1');
                 //header('location: index.php');
-                header('location: ../../../index.php');
-             }else
-              {
-                echo "เกิดข้อผิดพลาด " .mysqli_error($dbcon);
-            }
+                header('location: ../../../../Subject_CEI3104/index.php');
+             }else{
+                mysqli_error($dbcon);          
+                echo '<h2 align="center">กรุณาสมัครใหม่อีกคร้ง</h2>';
+                echo '<button style="margin-left: 900px;"type="button"><a href="register.html" style="text-decoration: none;color: black;">กลับหน้ารายการ</a></button>';
+             }
+           
 
 
 ?>

@@ -19,7 +19,7 @@ $query2 = mysqli_query($dbcon, $sql2);
         <h1 style="text-align: center;">เพิ่มตอนซี่รีย์ </h1>
         <form method="post" action="insert_series.php">
         <select class="form-select" name='id'>
-                <option selected>เลือกเลขของซี่รีย์</option>
+                <option selected>เลือกหนังเพื่อเพิ่มตอน</option>
                 <?php while ($result_movie = mysqli_fetch_assoc($query2)) { ?>
                     <option value="<?= $result_movie['id'] ?>"><?= $result_movie['name'] ?></option>
                 <?php } ?>

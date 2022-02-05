@@ -44,6 +44,7 @@ $show = mysqli_stmt_get_result ($stmt);
     {
         echo "<script type='text/javascript'>";
         echo "alert('Username หรือ Password ไม่ถูกต้อง')";
+        
         echo "</script>";    
     }
 //--------------------------------------------------------------------------------------------------------------------
