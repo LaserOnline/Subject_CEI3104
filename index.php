@@ -70,6 +70,11 @@ if (!($num_page == (int)$num_page)) {
           <button style="margin: 15px 0 0 5px;" type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="admin/logout.php">ออกจากระบบ</a></button>
           </li>
           <?php } ?>
+          <?php if (!isset($_SESSION['is_member'])) { ?>
+          <li class="nav-item">
+          <button style="margin: 15px 0 0 5px;" type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="admin/logout.php">เข้าสู่ระบบ</a></button>
+          </li>
+          <?php } ?>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
