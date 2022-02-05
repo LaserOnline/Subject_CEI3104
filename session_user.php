@@ -4,10 +4,12 @@
 
     if (!isset($_SESSION['is_admin']))
     {
-        if (!isset($_SESSION['is_member']))
+        if(!isset($_SESSION['is_member']))
         {
             header("Location: login/login.html");
-        }
-    }
+        }     
+    } 
+   
 
 ?>
+
