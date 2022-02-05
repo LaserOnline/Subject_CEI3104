@@ -73,7 +73,7 @@ if (!($num_page == (int)$num_page)) {
           <?php if (!isset($_SESSION['is_member'])) { ?>
             <?php if (!isset($_SESSION['is_admin'])) { ?>
           <li class="nav-item">
-          <button  type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/login/login.html">เข้าสู่ระบบ</a></button>
+          <button  type="button" class="btn btnx-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/login/login.html">เข้าสู่ระบบ</a></button>
           </li>
           <?php } ?>
           <?php } ?>
@@ -92,7 +92,23 @@ if (!($num_page == (int)$num_page)) {
   </nav>
 
   <!-- หน้าหนัง -->
+
   <div class="album py-5 bg-light " style="background-color: white">
+ <?php if (isset($_SESSION['is_member'])) {
+        ?>
+    <div class="card" style="width: 10rem;height: 3rem;margin: -47px 0 0 1700px;">
+      <div class="card-body">
+       
+          <p style="margin-top: -10px;">
+             คุณ  <?php echo $_SESSION['login_username']; ?>
+        </p>
+      
+      </div>
+    </div>
+  <?php } ?>
+
+
+
     <div class="container">
 
       <div class="title-box-movie">

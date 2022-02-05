@@ -9,7 +9,7 @@
     $result = mysqli_query($dbcon,$sql);
 
     if($result) {
-        header('location: ../../../../Subject_CEI3104/success.php');     
+        header('location: ../../../../Subject_CEI3104/success2.php');     
     }else{
        echo "เกิดข้อผิดพลาด". mysqli_error($dbcon);
     }

@@ -23,16 +23,16 @@ $result = mysqli_fetch_array($query);
         <form method="get" action="edit2.php">
             <div class="form-group">
             <label style="margin-top: 10px;" for="exampleInputEmail1">หนังเรื่องที่</label>
-                <input class="form-control" name="id" placeholder="<?= $result['id'] ?>">
+                <input class="form-control" name="id" value="<?= $result['id'] ?>">
                 <label style="margin-top: 10px;" for="exampleInputEmail1">ชื่อตอน</label>
-                <input class="form-control" name="name" placeholder="<?= $result['name'] ?>">
+                <input class="form-control" name="name" value="<?= $result['name'] ?>">
             </div>
             <div class="form-group">
                 <label style="margin-top: 10px;" for="exampleInputPassword1">ลิ้งตอน</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" name="vdo" placeholder="<?= $result['vdo'] ?>">
+                <input type="text" class="form-control" id="exampleInputPassword1" name="vdo" value="<?= $result['vdo'] ?>">
 
                 <label style="margin-top: 10px;" for="exampleInputPassword1">ตอนที่</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" name="part" placeholder="<?= $result['part'] ?>">
+                <input type="text" class="form-control" id="exampleInputPassword1" name="part" value="<?= $result['part'] ?>">
 
                 
 
