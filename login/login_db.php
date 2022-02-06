@@ -31,11 +31,14 @@ $show = mysqli_stmt_get_result ($stmt);
             if ($se_user['login_status'] == 1)
             {   
                 $_SESSION['is_admin'] = 1;
+                $_SESSION ['login_username'] = $se_user ['login_username'];
+                $_SESSION ['login_email'] = $se_user ['login_email'];
                 header ('Location: ../admin/admin.php');
             }else
             {
                 $_SESSION['is_member'] = 0;
                 $_SESSION ['login_username'] = $se_user ['login_username'];
+                $_SESSION ['login_email'] = $se_user ['login_email'];
                 header ('Location: ../index.php');
             }
 

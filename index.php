@@ -63,27 +63,39 @@ if (!($num_page == (int)$num_page)) {
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
-        </li>
+        </li>   
+
+        <!--//* User -->
+         <?php if (!isset($_SESSION['is_member'])) { ?>
+            <?php if (!isset($_SESSION['is_admin'])) { ?>
+              <button  type="button" class="btn btnx-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/login/login.html">เข้าสู่ระบบ</a></button>
+            <?php } ?>
+         <?php } ?>
+
+         <?php if (isset($_SESSION['is_member'])) { ?>
+              <button  type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
+         <?php } ?>
+         
+         <?php if (isset($_SESSION['is_admin'])) { ?>
+            <button  type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
+          <?php } ?>
+         <!--//* User -->    
         <li class="nav-item">
+
         <?php if (isset($_SESSION['is_member'])) { ?>
-          <li class="nav-item">
-          <button  type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
-          </li>
-          <?php } ?>
-          <?php if (!isset($_SESSION['is_member'])) { ?>    
-            <?php if (!isset($_SESSION['is_admin'])) { ?> 
-            <li class="nav-item">
-          <button  type="button" class="btn btnx-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/login/login.html">เข้าสู่ระบบ</a></button>
-           </li>
-           <?php } ?>
-          <?php } ?>
-          <?php if (isset($_SESSION['is_admin'])) { ?>
-          <li class="nav-item">
-          <button  type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
-          </li>
-          <?php } ?>
-        </li>    
+          <span class="badge badge-light">ชื่อ <?php echo  $_SESSION['login_username']?></span>
+        <br>
+          <span class="badge badge-info">อีเมล <?php echo  $_SESSION['login_email']?></span>
+        <?php } ?>
+
+        <?php if (isset($_SESSION['is_admin'])) { ?>
+          <span class="badge badge-light">ชื่อ <?php echo  $_SESSION['login_username']?></span>
+        <br>
+          <span class="badge badge-info">อีเมล <?php echo  $_SESSION['login_email']?></span>
+        <?php } ?>
+
       </ul>
+
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-dark" my-2 my-sm-0 type="submit">ค้นหา</button>
@@ -96,18 +108,6 @@ if (!($num_page == (int)$num_page)) {
   <div class="album py-5 bg-light " style="background-color: white">
  <?php if (isset($_SESSION['is_member'])) {
         ?>
-    <div class="card" style="width: 10rem;height: 3rem;margin: -47px 0 0 1700px;">
-
-    <div class="card" style="width: 10rem;height: 3rem;margin: -45px 0 0 1755px;">
-
-      <div class="card-body">
-       
-          <p style="margin-top: -10px;">
-             คุณ  <?php echo $_SESSION['login_username']; ?>
-        </p>
-      
-      </div>
-    </div>
   <?php } ?>
     <div class="container">
 
