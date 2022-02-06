@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 05, 2022 at 03:09 PM
+-- Generation Time: Feb 06, 2022 at 10:38 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -33,15 +33,20 @@ CREATE TABLE `data_movie` (
   `name` text NOT NULL,
   `vdo_ex` text NOT NULL,
   `vdo_main` text NOT NULL,
-  `status_list` enum('YES','NO') NOT NULL DEFAULT 'NO'
+  `status_list` enum('YES','NO') NOT NULL DEFAULT 'NO',
+  `movie_time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `data_movie`
 --
 
-INSERT INTO `data_movie` (`id`, `img`, `name`, `vdo_ex`, `vdo_main`, `status_list`) VALUES
-(15, '1.jpg', 'Avenger ', 'tmeOjFno6Do', 'tmeOjFno6Do', 'NO');
+INSERT INTO `data_movie` (`id`, `img`, `name`, `vdo_ex`, `vdo_main`, `status_list`, `movie_time`) VALUES
+(1, 'onepiece.jpg', 'Onepiece', 'tmeOjFno6Do', 'tmeOjFno6Do', 'YES', '2022-02-06 04:35:25'),
+(2, 'conan.jpg', 'Conan', 'tmeOjFno6Do', 'tmeOjFno6Do', 'YES', '2022-02-06 04:36:23'),
+(3, 'naruto.jpg', 'Naruto', 'tmeOjFno6Do', 'tmeOjFno6Do', 'YES', '2022-02-06 04:38:49'),
+(4, '1.jpg', 'Avenger ', 'tmeOjFno6Do', 'tmeOjFno6Do', 'NO', '2022-02-06 04:39:00'),
+(5, '2.jpg', 'Avenger1', 'tmeOjFno6Do', 'tmeOjFno6Do', 'NO', '2022-02-06 04:55:21');
 
 --
 -- Indexes for dumped tables
@@ -61,7 +66,7 @@ ALTER TABLE `data_movie`
 -- AUTO_INCREMENT for table `data_movie`
 --
 ALTER TABLE `data_movie`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
