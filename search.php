@@ -106,7 +106,8 @@ if (!($num_page == (int)$num_page)) {
 
       <div class="row" style="margin-top: 15px;">
         <?php
-        $query  = mysqli_query($dbcon, "SELECT * FROM data_movie  ORDER BY id DESC LIMIT $limit_start,$limit_page");
+        $search = $_GET['search'];
+        $query  = mysqli_query($dbcon, "SELECT * FROM data_movie WHERE name LIKE '%$search%' ORDER BY id DESC LIMIT $limit_start,$limit_page");
         while ($rs = mysqli_fetch_array($query)) {
         ?>
           <div class="col-md-3">
