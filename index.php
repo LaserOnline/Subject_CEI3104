@@ -77,7 +77,7 @@ if (!($num_page == (int)$num_page)) {
          <?php } ?>
          
          <?php if (isset($_SESSION['is_admin'])) { ?>
-            <button  type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
+            <button   type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
           <?php } ?>
          <!--//* User -->    
         <li class="nav-item">
@@ -98,11 +98,10 @@ if (!($num_page == (int)$num_page)) {
 
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-dark" my-2 my-sm-0 type="submit">ค้นหา</button>
+        <button class="btn btn-dark" my-2 my-sm-0 type="submit">ค้นหา</button>      
       </form>
     </div>
   </nav>
-
   <!-- หน้าหนัง -->
 
   <div class="album py-5 bg-light " style="background-color: white">
