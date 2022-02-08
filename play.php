@@ -60,17 +60,6 @@ if (!$list) {
           <a class="nav-link" href="index.php" style="color: white;">หน้าแรก <span class="sr-only">(current)</span></a>
         </li>
 
-        <li class="nav-item dropdown">
-          <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            หมวดหมุ่
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
 
         <li class="nav-item">
           <button type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>

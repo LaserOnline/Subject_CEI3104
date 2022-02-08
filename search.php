@@ -53,36 +53,35 @@ if (!($num_page == (int)$num_page)) {
           <a class="nav-link" href="index.php" style="color: white;">หน้าแรก <span class="sr-only">(current)</span></a>
         </li>
 
-    
+
 
         <!--//* User -->
-         <?php if (!isset($_SESSION['is_member'])) { ?>
-            <?php if (!isset($_SESSION['is_admin'])) { ?>
-              <button  type="button" class="btn btn-light"><a style="color: black;text-decoration:none;" href="../Subject_CEI3104/login/login.html">เข้าสู่ระบบ</a></button>
-            <?php } ?>
-         <?php } ?>
-
-         <?php if (isset($_SESSION['is_member'])) { ?>
-              <button  type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
-         <?php } ?>
-         
-         <?php if (isset($_SESSION['is_admin'])) { ?>
-            <button  type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
+        <?php if (!isset($_SESSION['is_member'])) { ?>
+          <?php if (!isset($_SESSION['is_admin'])) { ?>
+            <button type="button" class="btn btn-light"><a style="color: black;text-decoration:none;" href="../Subject_CEI3104/login/login.html">เข้าสู่ระบบ</a></button>
           <?php } ?>
-         <!--//* User -->    
-        <li class="nav-item">
-
+        <?php } ?>
 
         <?php if (isset($_SESSION['is_member'])) { ?>
-          <span class="badge badge-light" style="margin-left: 20px;margin-top: 10px">ชื่อ <?php echo  $_SESSION['login_username']?></span>
-          <span class="badge badge-info" style="margin-left: 1px;">อีเมล <?php echo  $_SESSION['login_email']?></span>
+          <button type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
         <?php } ?>
 
         <?php if (isset($_SESSION['is_admin'])) { ?>
-          <span class="badge badge-light" style="margin-left: 20px;margin-top: 10px">ชื่อ <?php echo  $_SESSION['login_username']?></span>
-        <br>
-          <span class="badge badge-info" style="margin-left: 10px;">อีเมล <?php echo  $_SESSION['login_email']?></span>
+          <button type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
         <?php } ?>
+        <!--//* User -->
+        <li class="nav-item">
+
+
+          <?php if (isset($_SESSION['is_member'])) { ?>
+            <span class="badge badge-light" style="margin-left: 20px;margin-top: 10px">ชื่อ <?php echo  $_SESSION['login_username'] ?></span>
+            <span class="badge badge-info" style="margin-left: 1px;">อีเมล <?php echo  $_SESSION['login_email'] ?></span>
+          <?php } ?>
+
+          <?php if (isset($_SESSION['is_admin'])) { ?>
+            <span class="badge badge-light" style="margin-left: 20px;margin-top: 10px">ชื่อ <?php echo  $_SESSION['login_username'] ?></span>
+            <span class="badge badge-info" style="margin-left: 1px;">อีเมล <?php echo  $_SESSION['login_email'] ?></span>
+          <?php } ?>
 
       </ul>
 
@@ -95,115 +94,115 @@ if (!($num_page == (int)$num_page)) {
 
   <!-- หน้าหนัง -->
 
- 
-    <div class="container" style="margin-top: 20px;">
 
-      <div class="title-box-movie">
-        <div class="h1-text">
-          <h1>ดูหนังยอดฮิต มาใหม่ ไฟแรง</h1>
-        </div>
-      </div>
+  <div class="container" style="margin-top: 20px;">
 
-      <div class="row" style="margin-top: 15px;">
-        <?php
-        $search = $_GET['search'];
-        $query  = mysqli_query($dbcon, "SELECT * FROM data_movie WHERE name LIKE '%$search%' ORDER BY id DESC LIMIT $limit_start,$limit_page");
-        while ($rs = mysqli_fetch_array($query)) {
-        ?>
-          <div class="col-md-3">
-            <div class="card mb-4 shadow-sm ">
-              <a style="text-decoration:none;" href="<?php if ($rs['status_list'] == 'YES') { ?>list<?php } else { ?>play<?php } ?>.php?id=<?= $rs['id'] ?>">
-                <img src="./images/<?= $rs['img'] ?>" while="100%" height="380" class="card-img-top">
-                <div class="card-body">
-                  <p class="card-text text-center" style="white-space: nowrap;overflow :hidden; text-overflow:ellipsis; color:black;"><?= $rs['name'] ?></p>
-                </div>
-            </div>
-          </div>
-        <?php
-        }
-        ?>
-
+    <div class="title-box-movie">
+      <div class="h1-text">
+        <h1>ดูหนังยอดฮิต มาใหม่ ไฟแรง</h1>
       </div>
     </div>
-    <!-- หน้าหนัง -->
 
-    <!-- ปุ่มเปลี่ยนหน้า    -->
+    <div class="row" style="margin-top: 15px;">
+      <?php
+      $search = $_GET['search'];
+      $query  = mysqli_query($dbcon, "SELECT * FROM data_movie WHERE name LIKE '%$search%' ORDER BY id DESC LIMIT $limit_start,$limit_page");
+      while ($rs = mysqli_fetch_array($query)) {
+      ?>
+        <div class="col-md-3">
+          <div class="card mb-4 shadow-sm ">
+            <a style="text-decoration:none;" href="<?php if ($rs['status_list'] == 'YES') { ?>list<?php } else { ?>play<?php } ?>.php?id=<?= $rs['id'] ?>">
+              <img src="./images/<?= $rs['img'] ?>" while="100%" height="380" class="card-img-top">
+              <div class="card-body">
+                <p class="card-text text-center" style="white-space: nowrap;overflow :hidden; text-overflow:ellipsis; color:black;"><?= $rs['name'] ?></p>
+              </div>
+          </div>
+        </div>
+      <?php
+      }
+      ?>
 
-    <nav aria-label="...">
-      <ul class="pagination justify-content-center">
+    </div>
+  </div>
+  <!-- หน้าหนัง -->
 
-        <?php
-        if ($page <= 1) {
-        ?>
-          <li class="page-item disabled">
+  <!-- ปุ่มเปลี่ยนหน้า    -->
 
-          </li>
-        <?php
-        } else {
-        ?>
-          <li class="page-item">
-            <a class="page-link" href="?Page=<?= $page - 1 ?>">ก่อนหน้า</a>
-          </li>
-        <?php
-        }
-        ?>
+  <nav aria-label="...">
+    <ul class="pagination justify-content-center">
+
+      <?php
+      if ($page <= 1) {
+      ?>
+        <li class="page-item disabled">
+
+        </li>
+      <?php
+      } else {
+      ?>
+        <li class="page-item">
+          <a class="page-link" href="?Page=<?= $page - 1 ?>">ก่อนหน้า</a>
+        </li>
+      <?php
+      }
+      ?>
 
 
-        <?php
-        if ($page > $num_page)
-          $page = $num_page;
-        if ($page >= 9) {
-          if ($page <= 5) {
-            $num_start = 1;
-            $num_stop = 9;
-          } elseif ($page > $num_page - 4) {
-            $num_start = $page - 8;
-            $num_stop = $num_page;
-          } else {
-            $num_start = $page - 2;
-            $num_stop = $page + 2;
-          }
-        } else {
+      <?php
+      if ($page > $num_page)
+        $page = $num_page;
+      if ($page >= 9) {
+        if ($page <= 5) {
           $num_start = 1;
+          $num_stop = 9;
+        } elseif ($page > $num_page - 4) {
+          $num_start = $page - 8;
           $num_stop = $num_page;
+        } else {
+          $num_start = $page - 2;
+          $num_stop = $page + 2;
         }
+      } else {
+        $num_start = 1;
+        $num_stop = $num_page;
+      }
 
 
 
-        for ($i = 1; $i <= $num_stop; $i++) {
-          if ($page == $i) {
-        ?>
-            <li class="page-item active" aria-current="page">
-              <a class="page-link"><?= $i ?><a class="sr-only">(current)</a></a>
-            </li>
-          <?php
-          } else {
-          ?>
-            <li class="page-item"><a class="page-link" href="?Page=<?= $i ?>"><?= $i ?></a> </li>
-        <?php
-          }
-        }
-        ?>
-
-
-        <?php
-        if ($page >= $num_page) {
-        ?>
-          <li class="page-item disabled">
-            <span class="page-link">ถัดไป</span>
+      for ($i = 1; $i <= $num_stop; $i++) {
+        if ($page == $i) {
+      ?>
+          <li class="page-item active" aria-current="page">
+            <a class="page-link"><?= $i ?><a class="sr-only">(current)</a></a>
           </li>
         <?php
         } else {
         ?>
-          <li class="page-item">
-            <a class="page-link" href="?Page=<?= $page + 1 ?>">ถัดไป</a>
-          </li>
-        <?php
+          <li class="page-item"><a class="page-link" href="?Page=<?= $i ?>"><?= $i ?></a> </li>
+      <?php
         }
-        ?>
-      </ul>
-    </nav>
-    <!-- ปุ่มเปลี่ยนหน้า    -->
+      }
+      ?>
+
+
+      <?php
+      if ($page >= $num_page) {
+      ?>
+        <li class="page-item disabled">
+          <span class="page-link">ถัดไป</span>
+        </li>
+      <?php
+      } else {
+      ?>
+        <li class="page-item">
+          <a class="page-link" href="?Page=<?= $page + 1 ?>">ถัดไป</a>
+        </li>
+      <?php
+      }
+      ?>
+    </ul>
+  </nav>
+  <!-- ปุ่มเปลี่ยนหน้า    -->
 
 
 

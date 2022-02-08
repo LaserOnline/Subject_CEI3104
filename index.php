@@ -56,33 +56,18 @@ if (!($num_page == (int)$num_page)) {
 
 
         <!--//* User -->
-<<<<<<< HEAD
-         <?php if (!isset($_SESSION['is_member'])) { ?>
-            <?php if (!isset($_SESSION['is_admin'])) { ?>
-              <button  type="button" class="btn btnx-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/login/login.html">เข้าสู่ระบบ</a></button>
-            <?php } ?>
-         <?php } ?>
-
-         <?php if (isset($_SESSION['is_member'])) { ?>
-              <button  type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
-         <?php } ?>
-         
-         <?php if (isset($_SESSION['is_admin'])) { ?>
-            <button   type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
-=======
         <?php if (!isset($_SESSION['is_member'])) { ?>
           <?php if (!isset($_SESSION['is_admin'])) { ?>
-            <button type="button" class="btn btn-light"><a style="color: black;text-decoration:none;" href="../Subject_CEI3104/login/login.html">เข้าสู่ระบบ</a></button>
->>>>>>> 903a856dddf0f9081a49fe72b50a5ad7bdda5502
+            <button type="button" class="btn btnx-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/login/login.html">เข้าสู่ระบบ</a></button>
           <?php } ?>
         <?php } ?>
 
         <?php if (isset($_SESSION['is_member'])) { ?>
-          <button type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
+          <button type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
         <?php } ?>
 
         <?php if (isset($_SESSION['is_admin'])) { ?>
-          <button type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
+          <button type="button" class="btn btn-warning"><a style="color: black;text-decoration:none;padding: 1px;" href="../Subject_CEI3104/admin/logout.php">ออกจากระบบ</a></button>
         <?php } ?>
         <!--//* User -->
         <li class="nav-item">
@@ -100,15 +85,9 @@ if (!($num_page == (int)$num_page)) {
 
       </ul>
 
-<<<<<<< HEAD
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-dark" my-2 my-sm-0 type="submit">ค้นหา</button>      
-=======
       <form class="form-inline my-2 my-lg-0" method="GET" action="search.php">
         <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value="">
         <button class="btn btn-dark" my-2 my-sm-0 type="submit">ค้นหา</button>
->>>>>>> 903a856dddf0f9081a49fe72b50a5ad7bdda5502
       </form>
     </div>
   </nav>
